@@ -1,0 +1,8 @@
+<button type="submit" *ngIf="!updateStatus" [disabled]="!this.myService.userLog" class="btn btn-secondary"
+    (click)="addLogBtn()">Add Log</button>
+
+<!-- <button type="submit" class="btn btn-secondary" (click)="addLogBtn()">Add Log</button> -->
+
+<button *ngIf="updateStatus" class="btn btn-secondary" (click)="updateBtn()">Update Log</button>
+
+<button class="btn btn-warning" [hidden]="!this.myService.userLog" (click)="clearLogBtn()">Clear</button>

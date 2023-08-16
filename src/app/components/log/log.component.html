@@ -1,0 +1,19 @@
+<!-- <div class="container" *ngFor=" let dataArray of LogsArray"> -->
+<!-- <div *ngFor=" let dataArray of LogsData"> -->
+<form class="card m-1">
+    <div class="m-1">
+        <table>
+            <tbody>
+                <tr *ngFor="let item of toDosData">
+                    <td style="width: 60%;" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
+                    </td>
+                    <td style="width: 40%;"> {{item.date | date: 'medium'}} </td>
+                    <td style="width: 10%; text-align: right;">
+                        <button class="btn btn-danger btn-sm">{{item.id}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+<!-- </div> -->
