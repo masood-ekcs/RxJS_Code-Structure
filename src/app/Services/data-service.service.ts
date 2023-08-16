@@ -53,5 +53,6 @@ export class DataServiceService {
 // primeFlex – library for angular
 // angularMaterial - library for angular
 
+// contact information of Rohit, the Trainer from CodingZen
 // 87665 50949
 // rohittbairwaa11@gmail.com
