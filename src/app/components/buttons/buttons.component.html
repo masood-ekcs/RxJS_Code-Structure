@@ -6,3 +6,6 @@
 <button *ngIf="updateStatus" class="btn btn-secondary" (click)="updateBtn()">Update Log</button>
 
 <button class="btn btn-warning" [hidden]="!this.myService.userLog" (click)="clearLogBtn()">Clear</button>
+
+<button class="btn btn-danger" style="float: right" title="Clear Local Storage" (click)="clearLocalStorage()">Clear
+    Local Storage</button>

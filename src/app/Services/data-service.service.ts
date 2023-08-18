@@ -41,6 +41,9 @@ export class DataServiceService {
   clear() {
     this.userLog = '';
     this.clearInputBS.next(true);
+  }
+
+  clearStorage() {
     localStorage.removeItem('myLog');
   }
 

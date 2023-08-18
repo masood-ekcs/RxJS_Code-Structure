@@ -13,11 +13,12 @@ export class LogComponent implements OnInit {
 
   ngOnInit(): void {
     this.myService.todos.subscribe((res: any) => {
-      // console.log(res);
       this.toDosData = res;
+      // console.log('res ' + res);
       localStorage.setItem('myLog', JSON.stringify(this.toDosData));
     });
     const myData = localStorage.getItem('myLog');
+    // console.log('myData ' + myData);
     if (myData) {
       this.toDosData = JSON.parse(myData);
     }

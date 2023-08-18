@@ -26,6 +26,10 @@ export class ButtonsComponent implements OnInit {
     this.myService.clear();
   }
 
+  clearLocalStorage() {
+    this.myService.clearStorage();
+  }
+
   updateBtn() {
     console.log('Update Button clicked');
     //   // this.myService.editLog();
