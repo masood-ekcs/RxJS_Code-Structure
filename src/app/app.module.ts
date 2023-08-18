@@ -10,6 +10,7 @@ import { LogComponent } from './components/log/log.component';
 import { InputFormComponent } from './Layout/input-form/input-form.component';
 import { LogListComponent } from './Layout/log-list/log-list.component';
 import { FormsModule } from '@angular/forms';
+import { InplaceModule } from 'primeng/inplace';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     InputFormComponent,
     LogListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, InplaceModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,19 +1,58 @@
 <!-- <div class="container" *ngFor=" let dataArray of LogsArray"> -->
 <!-- <div *ngFor=" let dataArray of LogsData"> -->
+<!-- <form class="card m-1">
+    <div class="m-1">
+        <table class="grid w-full">
+            <tbody>
+                <tr *ngFor="let item of toDosData">
+                    <td class="col-7" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
+                    </td>
+                    <td class="col-3"> {{item.date | date: 'medium'}} </td>
+                    <td class="col-2">
+                        <button class="btn btn-danger btn-sm flex gap-2 align-items-center"><i class="pi pi-trash"></i>
+                            delete button
+                            {{item.id}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form> -->
+<!-- </div> -->
+
+
+
 <form class="card m-1">
     <div class="m-1">
         <table>
             <tbody>
-                <tr *ngFor="let item of toDosData">
+                <tr *ngFor="let item of toDosData; let i = index;">
+
+                    <!-- <div class="card"> -->
+                    <!-- </div> -->
+
                     <td style="width: 60%;" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
+                        <!-- <td>
+                        <p-inplace [closable]=closable>
+                            <ng-template pTemplate="display">
+                                <span>{{item.userInputLog}}</span>
+                            </ng-template>
+
+                            <ng-template pTemplate="content">
+                                <input type="text" value="PrimeNG" pInputText />
+                            </ng-template>
+                        </p-inplace> -->
+
                     </td>
+
+
                     <td style="width: 40%;"> {{item.date | date: 'medium'}} </td>
-                    <td style=" text-align: right;">
-                        <button class="btn btn-danger btn-sm">{{item.id}}</button>
+                    <td style="width: 10%; text-align: right;">
+                        <button class="btn btn-danger btn-sm flex justify-content-center"
+                            (click)="deleteMe(item.id, i)"><i class="pi pi-trash"></i>{{item.id}}</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </form>
-<!-- </div> -->
