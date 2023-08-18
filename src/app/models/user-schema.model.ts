@@ -1,5 +1,5 @@
 export interface userSchema {
-  id: Number;
+  id: string;
   date: Date;
   userInputLog: string;
 }

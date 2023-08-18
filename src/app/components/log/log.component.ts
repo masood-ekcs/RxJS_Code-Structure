@@ -32,7 +32,7 @@ export class LogComponent implements OnInit {
   }
 
   // using the SPLICE method to delete and update the Local Storage
-  deleteMe(myId: number, i: any) {
+  deleteMe(myId: string, i: any) {
     console.log('myId ' + myId, 'i ' + i);
     this.toDosData.splice(i, 1);
     localStorage.setItem('myLog', JSON.stringify(this.toDosData));

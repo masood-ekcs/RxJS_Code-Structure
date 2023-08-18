@@ -28,7 +28,8 @@ export class DataServiceService {
     // if (this.userLog != '') {
     // if (this.userLog.length > 0) {
     this.userDb.push({
-      id: this.userDb.length + 1,
+      // id: this.userDb.length + 1,
+      id: Date.now().toString(),
       date: new Date(),
       userInputLog: this.userLog,
     });

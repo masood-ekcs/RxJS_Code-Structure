@@ -38,7 +38,7 @@ export class InputComponent implements OnInit {
   takeValue() {
     this.myService.addToLog(this.userInput);
 
-    console.log('Data from Input', this.userInput);
+    // console.log('Data from Input', this.userInput);
     this.myService.updatedData.next(this.userInput);
     return false;
   }
