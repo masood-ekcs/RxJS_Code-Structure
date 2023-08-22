@@ -1,33 +1,26 @@
-<form class="card m-1">
+<form class="card" *ngIf="toDosDataLength">
     <div class="m-1">
+        <!-- 
+        m-1 // space from all sides
+        mt-1 // space from top
+        mb-1 // space from bottom
+        mr-1 // space from right
+        ml-1 // space from left
+         -->
         <table>
             <tbody>
                 <tr *ngFor="let item of toDosData; let i = index;">
 
-                    <!-- <div class="card"> -->
-                    <!-- </div> -->
-
-                    <td style="width: 60%;" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
-                        <!-- <td>
-                        <p-inplace [closable]=closable>
-                            <ng-template pTemplate="display">
-                                <span>{{item.userInputLog}}</span>
-                            </ng-template>
-
-                            <ng-template pTemplate="content">
-                                <input type="text" value="PrimeNG" pInputText />
-                            </ng-template>
-                        </p-inplace> -->
-
+                    <td style="width: 70%;" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
                     </td>
 
+                    <td style="width: 30%;"> {{item.date | date: 'medium'}}
+                        <span *ngIf="item.updated">(Updated)</span>
+                    </td>
 
-                    <td style="width: 40%;"> {{item.date | date: 'medium'}} </td>
-
-
-                    <td style="width: 10%; text-align: right;">
-                        <button class="btn btn-danger btn-sm flex justify-content-center"
-                            (click)="deleteMe(item.id, i)"><i class="pi pi-trash"></i>{{item.id}}</button>
+                    <td style="width: 20%; text-align: right;">
+                        <span type="button" class="btn btn-danger btn-sm flex justify-content-center"
+                            (click)="deleteMe(item.id, i)"><i class="pi pi-trash"></i></span>
                     </td>
                 </tr>
             </tbody>
@@ -39,25 +32,66 @@
 
 
 
+<!-- <div class="card">
+    <div class="card-container">
+        <div class="flex" *ngFor="let item of toDosData; let i = index;">
 
+
+            <div class="col-6" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
+            </div>
+
+            <div class="col-3"> {{item.date | date: 'medium'}}</div>
+
+            <div class="col-3" style="text-align: right;">
+                <button class="btn btn-danger btn-sm align-items-center justify-content-center"
+                    (click)="deleteMe(item.id, i)"><i class="pi pi-trash"></i><span class="gap-2">{{item.id}}</span>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
 <!-- <div class="container" *ngFor=" let dataArray of LogsArray"> -->
 <!-- <div *ngFor=" let dataArray of LogsData"> -->
-<!-- <form class="card m-1">
-    <div class="m-1">
-        <table class="grid w-full">
-            <tbody>
-                <tr *ngFor="let item of toDosData">
-                    <td class="col-7" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
-                    </td>
-                    <td class="col-3"> {{item.date | date: 'medium'}} </td>
-                    <td class="col-2">
-                        <button class="btn btn-danger btn-sm flex gap-2 align-items-center"><i class="pi pi-trash"></i>
-                            delete button
-                            {{item.id}}</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<!-- <form class="card">
+    <div class="m-1 w-full">
+        <div *ngFor="let item of toDosData; let i = index;">
+
+            <div class="card-container flex m-1">
+                <div class="w-7" (click)="updateLog(item.id, item.userInputLog)">{{item.userInputLog}}
+
+                    <p-inplace [closable]=true style="width: 300px;">
+                        <ng-template pTemplate="display" style="width: 300px;">
+                            <div>Click to Edit</div>
+                        </ng-template>
+                        <ng-template pTemplate="content" style="width: 300px;">
+                            <input type="text" value="PrimeNG" pInputText />
+                        </ng-template>
+                    </p-inplace>
+
+                </div>
+                <div class="w-3"> {{item.date | date: 'medium'}} </div>
+                <div class="w-2" style="text-align: right;">
+                    <button class="btn btn-danger btn-sm gap-2 align-items-center justify-content-center"
+                        (click)="deleteMe(item.id, i)">
+                        <i class="pi pi-trash">delete button {{item.id}}</i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </form> -->
 <!-- </div> -->

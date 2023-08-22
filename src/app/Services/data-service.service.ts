@@ -12,6 +12,8 @@ export class DataServiceService {
   updateToDo = new Subject<boolean>();
   editText = new Subject<any>();
   updatedData = new Subject<any>();
+  updatedDate = new Subject<boolean>();
+  recordsLength = new Subject<any>();
 
   clearInputBS = new BehaviorSubject<boolean>(false);
 
@@ -28,12 +30,13 @@ export class DataServiceService {
     // if (this.userLog != '') {
     // if (this.userLog.length > 0) {
     this.userDb.push({
-      // id: this.userDb.length + 1,
-      id: Date.now().toString(),
+      id: Math.round(Date.now() * 99.99).toString(), // creating a unique ID using the Date function
       date: new Date(),
       userInputLog: this.userLog,
+      updated: false,
     });
-    console.log(this.userDb);
+    // console.log('userDb', this.userDb.length);
+    // console.log(this.userDb);
     this.todos.next(this.userDb);
     // alert('Log added…');
     // }
@@ -46,6 +49,8 @@ export class DataServiceService {
 
   clearStorage() {
     localStorage.removeItem('myLog');
+    this.userDb = [];
+    this.todos.next(this.userDb);
   }
 
   // editLog(id: any, userInput: any) {

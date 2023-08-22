@@ -8,6 +8,9 @@ import { DataServiceService } from 'src/app/Services/data-service.service';
 })
 export class ButtonsComponent implements OnInit {
   updateStatus: boolean = false;
+  updatedDataInput: any; // this will capture the updatedData from Input.ts
+  todosData: any;
+  updatedlog: any;
 
   constructor(public myService: DataServiceService) {}
 
@@ -16,10 +19,20 @@ export class ButtonsComponent implements OnInit {
       this.updateStatus = res;
       // console.log(res);
     });
+    this.myService.updatedData.subscribe((res) => {
+      console.log('updatedData from Button ', res);
+      this.updatedlog = res;
+    });
+
+    this.myService.editText.subscribe((res) => {
+      console.log(res);
+      this.updatedDataInput = res;
+    });
   }
 
   addLogBtn() {
     this.myService.submit();
+    this.myService.clear();
   }
 
   clearLogBtn() {
@@ -32,10 +45,30 @@ export class ButtonsComponent implements OnInit {
 
   updateBtn() {
     console.log('Update Button clicked');
-    //   // this.myService.editLog();
-    //   console.log('id1' + id1, 'userInput1' + userInput1);
-    this.myService.updatedData.subscribe((res) => {
-      console.log('updated Data ' + res);
-    });
+    let id = this.updatedDataInput.id;
+    let todosArray = localStorage.getItem('myLog');
+    if (todosArray) {
+      this.todosData = JSON.parse(todosArray);
+      // console.log('todosData from update button ', this.todosData, 'id ', id);
+
+      let itemFoundFromArray = this.todosData.find(
+        (item: { id: any }) => item.id == id
+      );
+      itemFoundFromArray.userInputLog = this.updatedlog;
+      itemFoundFromArray.updated = true;
+      itemFoundFromArray.date = new Date();
+      // console.log('itemFoundFromArray', itemFoundFromArray);
+
+      // console.log('todosData', this.todosData);
+      this.myService.todos.next(this.todosData);
+      localStorage.setItem('myLog', JSON.stringify(this.todosData));
+      this.updateStatus = false;
+      this.myService.clear();
+    }
+  }
+
+  cancelUpdateBtn() {
+    this.updateStatus = false;
+    this.myService.clear();
   }
 }

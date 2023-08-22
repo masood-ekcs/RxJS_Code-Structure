@@ -21,7 +21,7 @@ export class InputComponent implements OnInit {
 
     this.myService.editText.subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
         this.editUserInput = res;
         this.userInput = res.userInfo;
       }
@@ -37,7 +37,6 @@ export class InputComponent implements OnInit {
 
   takeValue() {
     this.myService.addToLog(this.userInput);
-
     // console.log('Data from Input', this.userInput);
     this.myService.updatedData.next(this.userInput);
     return false;

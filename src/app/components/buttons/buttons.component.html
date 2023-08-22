@@ -5,6 +5,8 @@
 
 <button *ngIf="updateStatus" class="btn btn-secondary" (click)="updateBtn()">Update Log</button>
 
+<button *ngIf="updateStatus" class="btn btn-info" (click)="cancelUpdateBtn()">Cancel Update</button>
+
 <button class="btn btn-warning" [hidden]="!this.myService.userLog" (click)="clearLogBtn()">Clear</button>
 
 <button class="btn btn-danger" style="float: right" [disabled]="!this.myService.userDb.length"
