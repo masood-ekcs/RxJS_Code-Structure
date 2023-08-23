@@ -11,6 +11,10 @@ import { InputFormComponent } from './Layout/input-form/input-form.component';
 import { LogListComponent } from './Layout/log-list/log-list.component';
 import { FormsModule } from '@angular/forms';
 import { InplaceModule } from 'primeng/inplace';
+import { LoginComponent } from './components/login/login.component';
+import { PasswordModule } from 'primeng/password';
+import { MainComponent } from './components/main/main.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,8 +25,17 @@ import { InplaceModule } from 'primeng/inplace';
     LogComponent,
     InputFormComponent,
     LogListComponent,
+    LoginComponent,
+    MainComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, InplaceModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    InplaceModule,
+    PasswordModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
